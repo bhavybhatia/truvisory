@@ -42,4 +42,4 @@ class expenses(models.Model):
     me_inf = models.PositiveSmallIntegerField()
     ds = models.IntegerField()
     ds_ends=models.PositiveSmallIntegerField()
-    exp_les_inf = models.PositiveSmallIntegerField()
+    exp_ds_inf = models.PositiveSmallIntegerField()
