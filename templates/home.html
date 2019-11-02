@@ -1,78 +1,90 @@
 <html>
-    <head>
 
-        <title>Truvisory</title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-     <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<head>
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=McLaren|Montserrat|Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <title>TruVisory</title>
+</head>
 
+<body>
+    <div class="container">
 
-
-    </head>
-    <body style="background-color: rgba(30, 144, 255, 0.11)">
-        <br>
-
-            <h3 style="font-family: Raleway;font-size: 35px;font-weight: 700;color: #ffc107;margin-left: 5%;padding-bottom: -10;margin-bottom: -3.5%">Client's Details</h3>
-
-        <div class="container" style="margin-top: 5%;margin-left: 5%;padding: 20px;border:1px solid #ffc107;border-radius: 10px">
-            <form class="form-verticle" action="/" method="post">{%csrf_token%}
-
-                <div class="form-group">
-                    <label class="control-label col-lg-4 col-md-4 col-sm-4" style="font-family:Raleway;color: darkslategrey ">Name :</label>
-                    <div class="col-lg-10 col-md-10 col-sm-10">
-                        <input type="text" class="form-control" name="name" style="width: 50%" required >
-                    </div>
-
-
-            </div>
-                <div class="form-group">
-                    <label class="control-label col-lg-4 col-md-4 col-sm-4" style="font-family:Raleway;color: darkslategrey ">Email Id :</label>
-                    <div class="col-lg-10 col-md-10 col-sm-10">
-                        <input type="email" class="form-control" name="email" style="width: 50%" required>
-                    </div>
-
-
-            </div>
-
-                <div class="form-group">
-                    <label class="control-label col-lg-4 col-md-4 col-sm-4" style="font-family:Raleway;color: darkslategrey">Contact :</label>
-                    <div class="col-lg-10 col-md-10 col-sm-10">
-                        <input type="Number" class="form-control" name="contact" style="width: 50%" required>
-                    </div>
-
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-lg-4 col-md-4 col-sm-4" style="font-family:Raleway;color: darkslategrey">Age</label>
-                    <div class="col-lg-10 col-md-10 col-sm-10">
-                        <input type="Number" class="form-control" name="age" style="width: 50%" required>
-                    </div>
-
-                </div>
-                <div class="form-group">
-                <label class="control-label col-lg-4 col-md-4 col-sm-4" style="font-family:Raleway;color: darkslategrey">Marital Status</label>
-                 <div class="col-lg-10 col-md-10 col-sm-10">
-                        <select class="form-control" name="marital" value="Married" style="width: 50%" required>
-                          <option>Married</option>
-                          <option>Unmarried</option>
-                        </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="control-label col-lg-4 col-md-4 col-sm-4" style="font-family:Raleway;color: darkslategrey">Retirement Age</label>
-                      <div class="col-lg-10 col-md-10 col-sm-10">
-                          <input type="Number" class="form-control" name="retire" value="60" style="width: 50%" required>
-                      </div>
-
-                  </div>
-                <div>
-                    <button type="submit" class="btn btn-warning" style="margin-left:15px;color: aliceblue;font-weight: 600">Submit</button>
-                </div>
-            </form>
-
-
-
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Calculate EMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="form1.html">Get Started</a>
+            </li>
+        </ul>
+    </div>
+    <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div id="investor">
+        <img src="blob1.svg" class="blob-one">
+        <div class="intro">
+            <h1>Invest with Clear Vision !!</h1>
+        </div><br>
+        <div>
+            <a href="index.html"><button class="button1">
+                <h3 class="button1-text">Mutual Funds</h3>
+            </button></a>
         </div>
-    </body>
+        <div>
+            <img src="blob2.svg" class="blob-two"></div>
+    </div>
+    <svg class="wave-one" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#00cba9" fill-opacity="0.9"
+            d="M0,288L60,277.3C120,267,240,245,360,245.3C480,245,600,267,720,250.7C840,235,960,181,1080,170.7C1200,160,1320,192,1380,208L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+        </path>
+    </svg>
+    <div class="main-card">
+        <div class="card" style="width: 25rem;" id="card-one">
+            <img class="card-img-top" src="mutual.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h3 class="card-title" id="cardone-title">What are mutual funds?</h3>
+                <p class="card-text"><b>Mutual funds Defination:</b> How can I benefit by investing in Mutual Funds?</p>
+            </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="card" style="width: 25rem;" id="card-two">
+            <img class="card-img-top" src="mutual3.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h3 class="card-title" id="cardone-title">Benefits of Mutual Funds</h3>
+                <p class="card-text">Investing in Mutual Funds with calculated risk offers higher returns than conventional options like PPF, NSC, and FDs</p>
+            </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="card" style="width: 25rem;" id="card-two">
+            <img class="card-img-top" src="mutual2.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h3 class="card-title" id="cardone-title">How to invest in Mutual Funds</h3>
+                <p class="card-text">Set a financial goal and then choose the right Mutual Fund to achieve it.</p>
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="computation">
+        <h2 class="compute-text">Let us compute your investment and give you a vision !!</h2>
+    </div>
+    <br><br>
+    <script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
+    <div class="emi-calc">
+        <div id="ecww-widgetwrapper" style="min-width:250px;width:100%;">
+            <div id="ecww-widget" style="position:relative;padding-top:0;padding-bottom:280px;height:0;overflow:hidden;">
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
 </html>
