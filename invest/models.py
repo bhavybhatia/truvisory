@@ -71,4 +71,42 @@ class goals(models.Model):
 class portfolio(models.Model):
     eqshare = models.IntegerField()
     mutual = models.IntegerField()
+<<<<<<< HEAD
 >>>>>>> 71a58f660f3e29c4db2d292d6980b7865272bafb:invest/models.py
+=======
+
+class OTG(models.Model):
+    g1_year = models.PositiveSmallIntegerField()
+    g1_cost = models.IntegerField()
+    g1_inf = models.PositiveSmallIntegerField()
+    g2_year = models.PositiveSmallIntegerField()
+    g2_cost = models.IntegerField()
+    g2_inf = models.PositiveSmallIntegerField()
+    g3_year = models.PositiveSmallIntegerField()
+    g3_cost = models.IntegerField()
+    g3_inf = models.PositiveSmallIntegerField()
+    g4_year = models.PositiveSmallIntegerField()
+    g4_cost = models.IntegerField()
+    g4_inf = models.PositiveSmallIntegerField()
+    g5_year = models.PositiveSmallIntegerField()
+    g5_cost = models.IntegerField()
+    g5_inf = models.PositiveSmallIntegerField()
+
+class LFG(models.Model):
+    lg1_cost = models.IntegerField()
+    lg1_start = models.PositiveSmallIntegerField()
+    lg1_freq = models.PositiveSmallIntegerField()
+    lg1_end = models.PositiveSmallIntegerField()
+    lg1_inf = models.PositiveSmallIntegerField()
+    lg2_cost = models.IntegerField()
+    lg2_start = models.PositiveSmallIntegerField()
+    lg2_freq = models.PositiveSmallIntegerField()
+    lg2_end = models.PositiveSmallIntegerField()
+    lg2_inf = models.PositiveSmallIntegerField()
+
+class Income_Goal(models.Model):
+    i1_income = models.IntegerField()
+    i1_start = models.PositiveSmallIntegerField()
+    i1_end = models.PositiveSmallIntegerField()
+    i1_inf = models.PositiveSmallIntegerField()
+>>>>>>> new models added
