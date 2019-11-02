@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from mutualfunds.views import home
+from mutualfunds.views import home, portfolio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
+    path('portfolio/',portfolio)
 ]
