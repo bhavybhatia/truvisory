@@ -1,7 +1,7 @@
 #investor {
     display: flex;
     flex-direction: row;
-    background-image: url('../images/invest.png');
+    background-image: url('statics/images/invest.png');
     background-repeat: no-repeat;
     background-size: 700px;
     min-height: 100vh;
