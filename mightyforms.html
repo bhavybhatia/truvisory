@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .row {
+            margin: 10px 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <!-- <div class="col-md-12">
+                    <form id="income" onclick="return false;">
+                        <div class="form-group">
+                            <label for="Yearly salary">Yearly Salary:</label>
+                            <input type="number" class="form-control" id="salary_yearly"
+                                placeholder="Enter Salary Yearly" name="salary_yearly">
+                        </div>
+                        <div class="form-group">
+                            <label for="income_end">Yearly Rent:</label>
+                            <input type="number" class="form-control" id="income_end" placeholder="Enter Retirement"
+                                name="income_end">
+                        </div>
+                        <div class="form-group">
+                            <label for="business_income">Yearly Business Income (Yearly):</label>
+                            <input type="number" class="form-control" id="business_income"
+                                placeholder="Enter Business Income" name="income_end">
+                        </div>
+                        <div class="form-group">
+                            <label for="other_income">Other Income (Yearly):</label>
+                            <input type="number" class="form-control" id="other_income" placeholder="Enter Other Income"
+                                name="other_income">
+                        </div>
+                        <div class="form-group">
+                            <label for="other_income_end">Other Income Ending(Yearly):</label>
+                            <input type="number" class="form-control" id="other_income_end"
+                                placeholder="Enter Other Income End" name="other_income_end">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary form-control">Next</button>
+                        </div>
+
+                    </form>
+                </div> -->
+
+                <div class="col-md-12">
+                    <form id="goals" onclick="return false;">
+                        <legend> One time goals</legend>
+                        <div class="form-group">
+                            <label for="o_goal">Goal:</label>
+                            <input type="text" class="form-control" id="o_goal" placeholder="Enter goal" name="o_goal">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_priority">Priority:</label>
+                            <input type="text" class="form-control" id="o_priority" placeholder="Enter Priority"
+                                name="o_priority">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_type">Type:</label>
+                            <input type="number" class="form-control" id="o_type" placeholder="Enter Type"
+                                name="o_type">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_goal_year">Goal Year:</label>
+                            <input type="number" class="form-control" id="o_goal_year" placeholder="Enter Goal Year"
+                                name="o_goal_year">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_goal_cost">Current Cost:</label>
+                            <input type="number" class="form-control" id="o_goal_cost" placeholder="Enter Current Cost"
+                                name="o_goal_cost">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_term">Term (YRS):</label>
+                            <input type="number" class="form-control" id="o_term" placeholder="Enter Term"
+                                name="o_goal_cost">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_inflation">Inflation (%):</label>
+                            <input type="text" class="form-control" id="o_inflation" placeholder="Enter goal"
+                                name="o_inflation">
+                        </div>
+                        <button onClick="add_o_goal(this)" class="btn btn-warning form-control">Add+</button>
+                        <div class="form-group"></div>
+
+                        <legend> Recurring every year goals</legend>
+                        <div class="form-group">
+                            <label for="r_goal">Goal:</label>
+                            <input type="text" class="form-control" id="r_goal" placeholder="Enter goal" name="r_goal">
+                        </div>
+                        <div class="form-group">
+                            <label for="r_priority">Priority:</label>
+                            <input type="text" class="form-control" id="r_priority" placeholder="Enter Priority"
+                                name="r_priority">
+                        </div>
+                        <div class="form-group">
+                            <label for="r_cost">Current Cost:</label>
+                            <input type="number" class="form-control" id="r_cost" placeholder="Enter Current Cost"
+                                name="r_cost">
+                        </div>
+                        <div class="form-group">
+                            <label for="r_start_year">Goal Year:</label>
+                            <input type="number" class="form-control" id="r_start_year"
+                                placeholder="Enter Starting Year" name="r_start_year">
+                        </div>
+                        <div class="form-group">
+                            <label for="r_end_year">Current Cost:</label>
+                            <input type="number" class="form-control" id="r_end_year" placeholder="Enter Ending Year"
+                                name="r_end_year">
+                        </div>
+                        <div class="form-group">
+                            <label for="r_inflation">Inflation (%):</label>
+                            <input type="text" class="form-control" id="r_inflation" placeholder="Enter goal"
+                                name="r_inflation">
+                        </div>
+                        <button onClick="add_r_goal(this)" class="btn btn-warning form-control">Add+</button>
+                        <div class="form-group"></div>
+
+                        <legend> Last frequent goals</legend>
+                        <div class="form-group">
+                            <label for="f_goal">Goal:</label>
+                            <input type="text" class="form-control" id="f_goal" placeholder="Enter goal" name="f_goal">
+                        </div>
+                        <div class="form-group">
+                            <label for="f_priority">Priority:</label>
+                            <input type="text" class="form-control" id="f_priority" placeholder="Enter Priority"
+                                name="f_priority">
+                        </div>
+                        <div class="form-group">
+                            <label for="f_cost">Current Cost:</label>
+                            <input type="number" class="form-control" id="f_cost" placeholder="Enter Current Cost"
+                                name="f_cost">
+                        </div>
+                        <div class="form-group">
+                            <label for="f_start_year">Starting Year:</label>
+                            <input type="number" class="form-control" id="f_start_year"
+                                placeholder="Enter Starting Year" name="f_start_year">
+                        </div>
+                        <div class="form-group">
+                            <label for="f_freq">Frequency (how many years):</label>
+                            <input type="number" class="form-control" id="f_freq" placeholder="Enter Ending Year"
+                                name="f_freq">
+                        </div>
+                        <div class="form-group">
+                            <label for="f_inflation">Inflation (%):</label>
+                            <input type="text" class="form-control" id="f_inflation" placeholder="Enter goal"
+                                name="f_inflation">
+                        </div>
+                        <button onClick="add_f_goal(this)" class="btn btn-warning form-control">Add+</button>
+                        <div class="form-group"></div>
+
+                        <legend> Income from goals Achieved</legend>
+                        <div class="form-group">
+                            <label for="i_goal">Goal:</label>
+                            <input type="text" class="form-control" id="i_goal" placeholder="Enter goal" name="i_goal">
+                        </div>
+                        <div class="form-group">
+                            <label for="i_priority">Priority:</label>
+                            <input type="text" class="form-control" id="i_priority" placeholder="Enter Priority"
+                                name="i_priority">
+                        </div>
+                        <div class="form-group">
+                            <label for="i_cost">Current Cost:</label>
+                            <input type="number" class="form-control" id="i_cost" placeholder="Enter Current Cost"
+                                name="i_cost">
+                        </div>
+                        <div class="form-group">
+                            <label for="i_start_year">Starting Year:</label>
+                            <input type="number" class="form-control" id="i_start_year"
+                                placeholder="Enter Starting Year" name="i_start_year">
+                        </div>
+                        <div class="form-group">
+                            <label for="i_end_year">Ending Year:</label>
+                            <input type="number" class="form-control" id="i_end_year" placeholder="Enter Ending Year"
+                                name="i_end_year">
+                        </div>
+                        <div class="form-group">
+                            <label for="i_inflation">Inflation (%):</label>
+                            <input type="text" class="form-control" id="i_inflation" placeholder="Enter goal"
+                                name="i_inflation">
+                        </div>
+                        <button onClick="add_income_goal(this)" class="btn btn-warning form-control">Add+</button>
+                        <div class="form-group"></div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+</body>
+
+<script>
+    let o_goal = 1;
+
+    function add_o_goal(btn) {
+        $(btn).prev().append(`
+        <hr>
+        <div class="form-group">
+                            <label for="o_goal_${o_goal}">Goal:</label>
+                            <input type="text" class="form-control" id="o_goal_${o_goal}" placeholder="Enter goal" name="o_goal_${o_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_priority_${o_goal}">Priority:</label>
+                            <input type="text" class="form-control" id="o_priority_${o_goal}" placeholder="Enter Priority"
+                                name="o_priority_${o_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_type_${o_goal}">Type:</label>
+                            <input type="number" class="form-control" id="o_type_${o_goal}" placeholder="Enter Type"
+                                name="o_type_${o_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_goal_year_${o_goal}">Goal Year:</label>
+                            <input type="number" class="form-control" id="o_goal_year_${o_goal}" placeholder="Enter Goal Year"
+                                name="o_goal_year_${o_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_goal_cost_${o_goal}">Current Cost:</label>
+                            <input type="number" class="form-control" id="o_goal_cost_${o_goal}" placeholder="Enter Current Cost"
+                                name="o_goal_cost_${o_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_term_${o_goal}">Term (YRS):</label>
+                            <input type="number" class="form-control" id="o_term_${o_goal}" placeholder="Enter Term"
+                                name="o_goal_cost_${o_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="o_inflation_${o_goal}">Inflation (%):</label>
+                            <input type="text" class="form-control" id="o_inflation_${o_goal}" placeholder="Enter goal" name="o_inflation_${o_goal}">
+                        </div>`);
+        o_goal++;
+
+    }
+
+    let r_goal = 1;
+
+    function add_r_goal(btn) {
+        $(btn).prev().append(
+            `<hr>
+            <div class="form-group">
+                            <label for="r_goal_${r_goal}">Goal:</label>
+                            <input type="text" class="form-control" id="r_goal_${r_goal}" placeholder="Enter goal" name="r_goal_${r_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="r_priority_${r_goal}">Priority:</label>
+                            <input type="text" class="form-control" id="r_priority_${r_goal}" placeholder="Enter Priority"
+                                name="r_priority_${r_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="r_cost_${r_goal}">Current Cost:</label>
+                            <input type="number" class="form-control" id="r_cost_${r_goal}" placeholder="Enter Current Cost"
+                                name="r_cost_${r_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="r_start_year_${r_goal}">Goal Year:</label>
+                            <input type="number" class="form-control" id="r_start_year_${r_goal}"
+                                placeholder="Enter Starting Year" name="r_start_year_${r_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="r_end_year_${r_goal}">Current Cost:</label>
+                            <input type="number" class="form-control" id="r_end_year_${r_goal}" placeholder="Enter Ending Year"
+                                name="r_end_year_${r_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="r_inflation_${r_goal}">Inflation (%):</label>
+                            <input type="text" class="form-control" id="r_inflation_${r_goal}" placeholder="Enter goal" name="r_inflation_${r_goal}">
+                        </div>
+            `
+        );
+
+        r_goal++;
+    }
+
+    let f_goal = 1;
+
+    function add_f_goal(btn) {
+        $(btn).prev().append(`
+        <hr>
+        <div class="form-group">
+                            <label for="f_goal_${f_goal}">Goal:</label>
+                            <input type="text" class="form-control" id="f_goal_${f_goal}" placeholder="Enter goal" name="f_goal_${f_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="f_priority_${f_goal}">Priority:</label>
+                            <input type="text" class="form-control" id="f_priority_${f_goal}" placeholder="Enter Priority"
+                                name="f_priority_${f_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="f_cost_${f_goal}">Current Cost:</label>
+                            <input type="number" class="form-control" id="f_cost_${f_goal}" placeholder="Enter Current Cost"
+                                name="f_cost_${f_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="f_start_year_${f_goal}">Starting Year:</label>
+                            <input type="number" class="form-control" id="f_start_year_${f_goal}"
+                                placeholder="Enter Starting Year" name="f_start_year_${f_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="f_freq_${f_goal}">Frequency (how many years):</label>
+                            <input type="number" class="form-control" id="f_freq_${f_goal}" placeholder="Enter Ending Year"
+                                name="f_freq_${f_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="f_inflation_${f_goal}">Inflation (%):</label>
+                            <input type="text" class="form-control" id="f_inflation_${f_goal}" placeholder="Enter goal" name="f_inflation_${f_goal}">
+                        </div>
+        `);
+
+        f_goal++;
+    }
+
+    let i_goal = 1;
+
+    function add_income_goal(btn) {
+        $(btn).prev().append(`
+        <hr>
+        <div class="form-group">
+                            <label for="i_goal_${i_goal}">Goal:</label>
+                            <input type="text" class="form-control" id="i_goal_${i_goal}" placeholder="Enter goal" name="i_goal_${i_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="i_priority_${i_goal}">Priority:</label>
+                            <input type="text" class="form-control" id="i_priority_${i_goal}" placeholder="Enter Priority"
+                                name="i_priority_${i_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="i_cost_${i_goal}">Current Cost:</label>
+                            <input type="number" class="form-control" id="i_cost_${i_goal}" placeholder="Enter Current Cost"
+                                name="i_cost_${i_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="i_start_year_${i_goal}">Starting Year:</label>
+                            <input type="number" class="form-control" id="i_start_year_${i_goal}"
+                                placeholder="Enter Starting Year" name="i_start_year_${i_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="i_end_year_${i_goal}">Ending Year:</label>
+                            <input type="number" class="form-control" id="i_end_year_${i_goal}" placeholder="Enter Ending Year"
+                                name="i_end_year_${i_goal}">
+                        </div>
+                        <div class="form-group">
+                            <label for="i_inflation_${i_goal}">Inflation (%):</label>
+                            <input type="text" class="form-control" id="i_inflation_${i_goal}" placeholder="Enter goal" name="i_inflation_${i_goal}">
+                        </div>
+        `);
+
+        i_goal++;
+    }
+</script>
+
+</html>
