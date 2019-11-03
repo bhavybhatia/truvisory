@@ -22,5 +22,5 @@ urlpatterns = [
     path('',index),
     path('home/',home),
     path('portfolio/',portfolio),
-    path('compute/',compute)
+    path('compute/',compute),
 ]
