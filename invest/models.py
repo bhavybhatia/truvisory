@@ -42,9 +42,8 @@ class expenses(models.Model):
     ds = models.IntegerField()
     ds_ends=models.PositiveSmallIntegerField()
     exp_ds_inf = models.PositiveSmallIntegerField()
-<<<<<<< HEAD:mutualfunds/models.py
     emi1 = models.IntegerField()
-    emi1_end = model.PositiveSmallIntegerField()
+    emi1_end = models.PositiveSmallIntegerField()
     emi2 = models.IntegerField()
     emi2_end = models.PositiveSmallIntegerField()
 
@@ -62,18 +61,7 @@ class goals(models.Model):
     less_freq_end = models.PositiveSmallIntegerField()
     less_freq_freq = models.PositiveSmallIntegerField()
     less_freq_inf = models.PositiveSmallIntegerField()
-=======
-    emi1=models.IntegerField()
-    emi1_end=models.PositiveSmallIntegerField()
-    emi2=models.IntegerField()
-    emi2_end=models.PositiveSmallIntegerField()
 
-class portfolio(models.Model):
-    eqshare = models.IntegerField()
-    mutual = models.IntegerField()
-<<<<<<< HEAD
->>>>>>> 71a58f660f3e29c4db2d292d6980b7865272bafb:invest/models.py
-=======
 
 class OTG(models.Model):
     g1_year = models.PositiveSmallIntegerField()
@@ -109,4 +97,3 @@ class Income_Goal(models.Model):
     i1_start = models.PositiveSmallIntegerField()
     i1_end = models.PositiveSmallIntegerField()
     i1_inf = models.PositiveSmallIntegerField()
->>>>>>> new models added

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect,HttpResponse
 from .models import users, income
+from business_logic import getvalue
 
 def index(request):
     return render(request, "home.html")
@@ -30,3 +31,7 @@ def portfolio(request):
         return HttpResponse("Done")
     else:
         return render(request, "portfolio.html")
+
+def compute(request):
+    result = getvalue()
+    return result
