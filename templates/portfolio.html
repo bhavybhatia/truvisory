@@ -3,6 +3,7 @@
 <head>
 
     <title>Truvisory</title>
+    <script src="../statics/js/form.js"></script>
     <link rel="form2.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet">
@@ -21,7 +22,7 @@
     <h3 style="font-family: Raleway;font-size: 35px;font-weight: 700;color: #192A56;margin-left: 5%;padding-bottom: -10;margin-bottom: -3.5%">
         Let us know you better..</h3><br><br><br>
     <label>Give your salary details</label><br>
-    <form class="form-inline" action="portfolio" method="post">{%csrf_token%}
+    <form class="form-inline" action="portfolio" method="post" id="form1">{%csrf_token%}
         <div class="form-group">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="exampleInputName2">Salary (Yearly)</label>
             <input type="text" class="form-control" name="sal_and_bonus" placeholder="1200000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -35,7 +36,8 @@
             <input type="text" class="form-control" name="exp_sal_growth_in_per" placeholder="8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div><br><br>
         <div class="form-group">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="exampleInputRent">Rent (Yearly)</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="exampleInputRent">Rent
+                (Yearly)</label>
             <input type="text" class="form-control" name="rent" placeholder="1200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div><br><br>
         <div class="form-group">
@@ -46,7 +48,6 @@
             <label for="exampleInputRent">Expected Growth (%)</label>
             <input type="text" class="form-control" name="exp_growth" placeholder="1200">
         </div><br><br>
-        <br><label>Other Income </label>
         <div class="form-group">
             <label for="exampleInputOtherIncome">Business Income (Yearly)</label>
             <input type="text" class="form-control" name="business" placeholder="5000">
@@ -59,7 +60,7 @@
             <label for="exampleInputExpectedGrowthOtherIncome">Expected growth (%)</label>
             <input type="text" class="form-control" name="business_growth" placeholder="5">
         </div><br><br>
-        <label>Other Income </label>
+
         <div class="form-group">
             <label for="exampleInputOtherIncome">Other Income (Yearly)</label>
             <input type="text" class="form-control" name="other" placeholder="5000">
@@ -72,11 +73,52 @@
             <label for="exampleInputExpectedGrowthOtherIncome">Expected growth (%)</label>
             <input type="text" class="form-control" name="other_growth" placeholder="5">
         </div><br><br>
-        <div>
-                <button type="submit" class="btn btn-success">Submit</button></div>
-    </div>
-    </form>
+    </form><br><br>
 
+    <form id="form2">
+        <div>
+            <label>Expenses :</label><br><br>
+            <label>Yearly Expenses</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expenses ends in</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expected Inflation</label><input type="text" name="monthly_expenses"><br><br>
+        </div>
+        <div>
+            <label>Utilities</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expenses ends in</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expected Inflation</label><input type="text" name="monthly_expenses"><br><br>
+        </div>
+        <div>
+            <label>Grocery</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expenses ends in</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expected Inflation</label><input type="text" name="monthly_expenses"><br><br>
+        </div>
+        <div>
+            <label>Yearly Leisure</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expenses ends in</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expected Inflation</label><input type="text" name="monthly_expenses"><br><br>
+        </div>
+        <div>
+            <label>Medical Expenses</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expenses ends in</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expected Inflation</label><input type="text" name="monthly_expenses"><br><br>
+        </div>
+        <div>
+            <label>Domestic Staff</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expenses ends in</label><input type="text" name="monthly_expenses">&nbsp;&nbsp;
+            <label>Expected Inflation</label><input type="text" name="monthly_expenses"><br><br>
+        </div>
+
+    </form>
+    <br><br>
+
+    <form id="form3">
+        <h4>Liabilities : </h4>
+        <label>Home Loan</label>&nbsp;&nbsp;<input type="text" name="liabilities">
+        <label>Car Loan</label>&nbsp;&nbsp;<input type="text" name="liabilities">
+    </form>
+    <div>
+        <button type="submit" class="btn btn-success" onclick="submitForms()">Submit</button></div>
+    </div>
 </body>
 
 </html>
