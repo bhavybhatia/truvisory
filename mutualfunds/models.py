@@ -43,3 +43,22 @@ class expenses(models.Model):
     ds = models.IntegerField()
     ds_ends=models.PositiveSmallIntegerField()
     exp_ds_inf = models.PositiveSmallIntegerField()
+    emi1 = models.IntegerField()
+    emi1_end = model.PositiveSmallIntegerField()
+    emi2 = models.IntegerField()
+    emi2_end = models.PositiveSmallIntegerField()
+
+class portfolio(models.Model):
+    equity = models.IntegerField()
+    mutual = models.IntegerField()
+
+class goals(models.Model):
+    recurring = models.IntegerField()
+    recurring_start = models.PositiveSmallIntegerField()
+    recurring_end = models.PositiveSmallIntegerField()
+    recurring_inf = models.PositiveSmallIntegerField()
+    less_freq = models.IntegerField()
+    less_freq_start = models.PositiveSmallIntegerField()
+    less_freq_end = models.PositiveSmallIntegerField()
+    less_freq_freq = models.PositiveSmallIntegerField()
+    less_freq_inf = models.PositiveSmallIntegerField()

@@ -12,7 +12,7 @@ quandl.ApiConfig.api_key = "GtnywiP1rsMyzzyy6bDz"
 
 # func for RRR
 
-RRRs = [x * 0.001 for x in range(5  0, 100000)]
+RRRs = [x * 0.001 for x in range(50, 100000)]
 
 MRRR = 0
 
