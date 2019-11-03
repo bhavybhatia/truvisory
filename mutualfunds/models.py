@@ -43,7 +43,3 @@ class expenses(models.Model):
     ds = models.IntegerField()
     ds_ends=models.PositiveSmallIntegerField()
     exp_ds_inf = models.PositiveSmallIntegerField()
-    emi_1 = models.IntegerField()
-    emi_1_ends = models.PositiveSmallIntegerField()
-    emi_2 = models.IntegerField()
-    emi_2_ends = model.PositiveSmallIntegerField()
