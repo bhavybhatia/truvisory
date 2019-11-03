@@ -17,7 +17,8 @@ for RRR in RRRs:
     # Reset dataframes
 
     start = client[client.index=='Age']['Year'].values[0]
-    end = client[client.index=='Life Expectancy']['Year'].values[0]
+    # end = client[client.index=='Life Expectancy']['Year'].values[0]
+    end = 85
     net_cash_flow = []
     incomes = []
     exps = []
@@ -125,6 +126,7 @@ for current in range(start, end+1):
 
 plt.figure(figsize=(15, 8))
 plt.plot(net_cash_flow)
+plt.grid()
 plt.title('Cash Flow Net Worth over time')
 plt.savefig()
 
