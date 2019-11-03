@@ -8,9 +8,11 @@ import quandl
 quandl.ApiConfig.api_key = "GtnywiP1rsMyzzyy6bDz"
 
 
+# Sample dataframes
+
 # func for RRR
 
-RRRs = [x * 0.001 for x in range(50, 100000)]
+RRRs = [x * 0.001 for x in range(5  0, 100000)]
 
 for RRR in RRRs:
 
@@ -76,6 +78,8 @@ for RRR in RRRs:
 
 # Net cash flow
 
+# Reset data
+
 start = client[client.index=='Age']['Year'].values[0]
 end = client[client.index=='Life Expectancy']['Year'].values[0]
 net_cash_flow = []
@@ -128,7 +132,7 @@ plt.figure(figsize=(15, 8))
 plt.plot(net_cash_flow)
 plt.grid()
 plt.title('Cash Flow Net Worth over time')
-plt.savefig()
+plt.savefig('cash_flow.png')
 
 fund1 = quandl.get("AMFI/104481")
 fund2 = quandl.get("AMFI/100546")
@@ -206,8 +210,7 @@ for key in reco_funds_returns:
 plt.figure(figsize=(15, 8))
 plt.title('Annualized Returns for all funds: 10 Years')
 sns.barplot(x=list(annualized_returns_decade.keys()), y=list(annualized_returns_decade.values()))
-plt.show()
-plt.savefig()
+plt.savefig('annual_returns.png')
 
 
 reco_vals = []
@@ -216,4 +219,65 @@ for key in reco_funds_returns:
 plt.figure(figsize=(15, 8))
 plt.title('Sharpe ratios for recommended funds')
 sns.barplot(x=reco_funds_returns, y=reco_vals)
-plt.savefig()
+plt.savefig('sharpe.png')
+
+
+# Reset dataframe
+
+start = client[client.index=='Age']['Year'].values[0]
+end = client[client.index=='Life Expectancy']['Year'].values[0]
+new_net_cash_flow = []
+incomes = []
+exps = []
+initial_invs = []
+
+RRR = annualized_returns_decade[reco_fund_sharpe]
+
+for current in range(start, end+1):
+
+    if current == start:
+        initial_inv = assets[assets.Risk=='Market']['Market Value'].values.sum()
+    else:
+        initial_inv = new_net_cash_flow[-1]
+
+    initial_inv *= (1 + RRR/1) # Check
+
+    initial_invs.append(initial_inv)
+
+    year_income = income[income['Income End']>=current].Yearly.values.sum()
+    income.Yearly = list(map(add, list(map(abs, list(map(mul, list(income.Yearly.values), list(income.Growth.values))))), list(income.Yearly.values)))
+    income.Monthly = [elem/12 for elem in list(income.Yearly.values)]
+    g_income = goal_income[(goal_income['Start']<=current) & (goal_income['End']>=current)].Income.values.sum()
+    year_income += g_income
+    goal_income.Income = list(map(add, list(map(abs, list(map(mul, list(goal_income.Income.values), list(goal_income.Inflation))))), list(goal_income.Income.values)))
+
+    incomes.append(year_income)
+
+    year_expenses = expenses[expenses['Expense End']>=current].Yearly.values.sum()
+    expenses.Yearly = list(map(add, list(map(abs, list(map(mul, list(expenses.Yearly.values), list(expenses.Inflation.values))))), list(expenses.Yearly.values)))
+    expenses.Monthly = [elem/12 for elem in list(expenses.Yearly.values)]
+    year_liabilities = liabilities[liabilities['End']>=current].Yearly.values.sum()
+    one_time_expense = one_time_goals[one_time_goals['Year']==current].Cost.values.sum()
+    one_time_goals.Cost = list(map(add, list(map(mul, list(one_time_goals['Cost']), list(one_time_goals.Inflation.values))), list(one_time_goals.Cost)))
+    low_freq_expense_rows = low_freq_goals[(low_freq_goals['Start']<=current) & (low_freq_goals['End']>=current)]
+    low_freq_expense = 0
+    for index, row in low_freq_expense_rows.iterrows():
+        if (current - row['Start']) % row['Frequency'] == 0:
+            low_freq_expense += row['Cost']
+    freq_expense = recurring_goals[(recurring_goals['Start']<=current) & (recurring_goals['End']>=current)].Cost.values.sum()
+    recurring_goals.Cost = list(map(add, list(map(mul, list(recurring_goals['Cost']), list(recurring_goals.Inflation.values))), list(recurring_goals.Cost)))
+    year_expenses += year_liabilities + one_time_expense + freq_expense + low_freq_expense
+
+    exps.append(year_expenses)
+
+    net_income = year_income - year_expenses
+
+    new_net_cash_flow.append(net_income + initial_inv)
+
+plt.figure(figsize=(15, 8))
+plt.plot(net_cash_flow)
+plt.plot(new_net_cash_flow)
+plt.grid()
+plt.legend(['Minimum RRR', 'Best RRR'])
+plt.title('Cash Flow Net Worth over time - Min RRR and Best RRR')
+plt.savefig('MinVsBest.png')
