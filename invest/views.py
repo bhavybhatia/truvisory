@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect,HttpResponse
 from .models import users, income
-from business_logic import getvalue
+# from .business_logic import getvalue
 
 def index(request):
     return render(request, "home.html")
@@ -25,13 +25,13 @@ def portfolio(request):
         uti=request.POST['uti'], uti_ends=request.POST['uti_ends'],exp_inf_uti=request.POST['exp_inf_uti'],grocery=request.POST['grocery'],
         grocery_ends=request.POST['grocery_ends'], exp_inf_groc=request.POST['exp_inf_groc'], mon_leisure=request.POST['mon_leisure'], leisure_ends=request.POST['leisure_ends'],
         exp_les_inf=request.POST['exp_les_inf'], me=request.POST['me'], me_ends=request.POST['me_ends'], me_inf=request.POST['me_inf'],  ds=request.POST['ds'],
-        ds_ends=request.POST['ds_ends'], exp_ds_inf=request.POST['exp_ds_inf'])
+        ds_ends=request.POST['ds_ends'], exp_ds_inf=request.POST['exp_ds_inf'],emi1=request.POST['emi1'], emi1_end=request.POST['emi1_end'], emi2=request.POST['emi2'],emi2_end=request.POST['emi2_end'])
         add_expenses.save()
+
 
         return HttpResponseRedirect('/compute/')
     else:
         return render(request, "portfolio.html")
 
 def compute(request):
-    result = getvalue()
-    return result
+    return HttpResponse("Required Rate of Return")

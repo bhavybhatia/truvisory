@@ -10,8 +10,8 @@ quandl.ApiConfig.api_key = "GtnywiP1rsMyzzyy6bDz"
 
 class getvalue:
 # Sample dataframes
-    inc = income.objects.get(id=1)
-    
+    # inc = income.objects.get(id=1)
+
 
     # func for RRR
 
