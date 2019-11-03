@@ -51,17 +51,6 @@ class portfolio(models.Model):
     equity = models.IntegerField()
     mutual = models.IntegerField()
 
-class goals(models.Model):
-    recurring = models.IntegerField()
-    recurring_start = models.PositiveSmallIntegerField()
-    recurring_end = models.PositiveSmallIntegerField()
-    recurring_inf = models.PositiveSmallIntegerField()
-    less_freq = models.IntegerField()
-    less_freq_start = models.PositiveSmallIntegerField()
-    less_freq_end = models.PositiveSmallIntegerField()
-    less_freq_freq = models.PositiveSmallIntegerField()
-    less_freq_inf = models.PositiveSmallIntegerField()
-
 
 class OTG(models.Model):
     g1_year = models.PositiveSmallIntegerField()

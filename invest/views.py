@@ -28,7 +28,7 @@ def portfolio(request):
         ds_ends=request.POST['ds_ends'], exp_ds_inf=request.POST['exp_ds_inf'])
         add_expenses.save()
 
-        return HttpResponse("Done")
+        return HttpResponseRedirect('/compute/')
     else:
         return render(request, "portfolio.html")
 
