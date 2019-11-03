@@ -52,6 +52,22 @@ class portfolio(models.Model):
     mutual = models.IntegerField()
 
 class goals(models.Model):
+    g1_start = models.PositiveSmallIntegerField()
+    g1_cost = models.IntegerField()
+    g1_inf = models.PositiveSmallIntegerField()
+    g2_start = models.PositiveSmallIntegerField()
+    g2_cost = models.IntegerField()
+    g2_inf = models.PositiveSmallIntegerField()
+    g3_start = models.PositiveSmallIntegerField()
+    g3_cost = models.IntegerField()
+    g3_inf = models.PositiveSmallIntegerField()
+    g4_start = models.PositiveSmallIntegerField()
+    g4_cost = models.IntegerField()
+    g4_inf = models.PositiveSmallIntegerField()
+    g5_start = models.PositiveSmallIntegerField()
+    g5_cost = models.IntegerField()
+    g5_inf = models.PositiveSmallIntegerField()
+    
     recurring = models.IntegerField()
     recurring_start = models.PositiveSmallIntegerField()
     recurring_end = models.PositiveSmallIntegerField()
