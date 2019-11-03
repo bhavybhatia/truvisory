@@ -14,6 +14,8 @@ quandl.ApiConfig.api_key = "GtnywiP1rsMyzzyy6bDz"
 
 RRRs = [x * 0.001 for x in range(5  0, 100000)]
 
+MRRR = 0
+
 for RRR in RRRs:
 
     # Reset dataframes
@@ -74,6 +76,7 @@ for RRR in RRRs:
             net_cash_flow.append(net_income + initial_inv)
 
     if not fail:
+        MRRR = RRR
         break
 
 # Net cash flow
@@ -86,6 +89,8 @@ net_cash_flow = []
 incomes = []
 exps = []
 initial_invs = []
+
+RRR = MRRR
 
 for current in range(start, end+1):
 
@@ -128,8 +133,10 @@ for current in range(start, end+1):
 
     net_cash_flow.append(net_income + initial_inv)
 
+df = pd.DataFrame({'cash_flow':net_cash_flow})
+df.index = [i for i in range(start, end+1)]
 plt.figure(figsize=(15, 8))
-plt.plot(net_cash_flow)
+plt.plot(df)
 plt.grid()
 plt.title('Cash Flow Net Worth over time')
 plt.savefig('cash_flow.png')
@@ -275,9 +282,16 @@ for current in range(start, end+1):
     new_net_cash_flow.append(net_income + initial_inv)
 
 plt.figure(figsize=(15, 8))
-plt.plot(net_cash_flow)
-plt.plot(new_net_cash_flow)
+df = pd.DataFrame({'min_cash_flow':net_cash_flow, 'best_cash_flow':new_net_cash_flow})
+df.index = [i for i in range(start, end+1)]
+plt.plot(df)
 plt.grid()
 plt.legend(['Minimum RRR', 'Best RRR'])
 plt.title('Cash Flow Net Worth over time - Min RRR and Best RRR')
 plt.savefig('MinVsBest.png')
+
+plt.figure(figsize=(15, 8))
+plt.plot(funds[reco_fund_sharpe])
+plt.title('Net Asset Value of ' + fund_keys[reco_fund_sharpe] + ' over time')
+plt.grid()
+plt.save('nav.png')
