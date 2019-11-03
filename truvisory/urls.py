@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from mutualfunds.views import home,portfolio,index
+from invest.views import home,portfolio,index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
