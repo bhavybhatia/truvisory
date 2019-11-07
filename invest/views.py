@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect,HttpResponse
 from .models import users, income
-from invest.business_logic.Logic import MRRR_Cal,Cash_Flow,Mutual_Fund
+from invest.business_logic import Logic
 
 def index(request):
     return render(request, "home.html")
@@ -34,7 +34,8 @@ def portfolio(request):
         return render(request, "portfolio.html")
 
 def compute(request):
-    res1 = MRRR_Cal()
-    res2 = Cash_Flow()
-    res3 = Mutual_Fund()
+    logic = Logic()
+    res1 = logic.MRRR_Cal()
+    res2 = logic.Cash_Flow()
+    res3 = logic.Mutual_Fund()
     return HttpResponse("Required Rate of Return")
